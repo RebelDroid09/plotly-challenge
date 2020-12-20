@@ -1,4 +1,4 @@
-const dataset;
+var  dataset;
 
 d3.json("./data/samples.json").then(function(data)
 { 
@@ -38,12 +38,24 @@ function updatePlotly() {
     var otuLabelSet = sampleSet.otu_labels.slice(0, 11);
     var sampleValueSet = sampleSet.sample_values.slice(0, 11);
 
+    console.log(otuIdSet);
+    console.log(otuLabelSet);
+    console.log(sampleValueSet);
+
+    for(i = 0; i < otuIdSet.length; i++)
+    {
+        var id = otuIdSet[i];
+        var text = "OTU " + id;
+        otuIdSet[i] = text; 
+    }
+
     var trace = [
         {
             x: otuIdSet,
             y: sampleValueSet,
             type: 'bar',
-            text: otuLabelSet
+            text: otuLabelSet,
+            orientation: 'h'
         }
     ];
 
