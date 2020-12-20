@@ -110,7 +110,7 @@ function updateBubbleChart(index) {
         }
     }
 
-    Plotly.newPlot('myDiv', bubbleTrace);
+    Plotly.newPlot('bubble', bubbleTrace);
 };
 
 
