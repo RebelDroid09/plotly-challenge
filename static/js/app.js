@@ -34,6 +34,8 @@ function updatePlotly() {
 
     var sampleSet = dataset.samples[desiredIndex];
 
+    updateMetadata(desiredIndex);
+
     var otuIdSet = sampleSet.otu_ids.slice(0, 11);
     var otuLabelSet = sampleSet.otu_labels.slice(0, 11);
     var sampleValueSet = sampleSet.sample_values.slice(0, 11);
@@ -61,4 +63,21 @@ function updatePlotly() {
 
     Plotly.newPlot('bar', trace);
 };
+
+function updateMetadata(index)
+{
+    var subjectMetadata = dataset.metadata[index];
+
+    var metadataPanel = d3.select("#sample-metadata")
+
+    var metadataText = metadataPanel.selectAll('p')
+        .data(subjectMetadata)
+        .enter()
+        .append("p")
+        .text(function(d) {
+            return d;
+        }); 
+}
+
+updatePlotly();
 
