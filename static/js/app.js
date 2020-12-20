@@ -92,5 +92,9 @@ function updateMetadata(index)
     metadataPanel.append("p").text(wfreq);
 };
 
+function updateBubbleChart(index) {
+
+};
+
 
 
