@@ -38,5 +38,14 @@ function updatePlotly() {
     var otuLabelSet = sampleSet.otu_labels.slice(0, 11);
     var sampleValueSet = sampleSet.sample_values.slice(0, 11);
 
+    var trace = [
+        {
+            x: otuLabelSet,
+            y: sampleValueSet,
+            type: 'bar'
+        }
+    ];
+
+    Plotly.newPlot('')
 };
 
