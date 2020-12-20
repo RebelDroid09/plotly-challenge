@@ -107,7 +107,8 @@ function updateBubbleChart(index) {
         text: otuLabelSet,
         mode: 'markers',
         marker: {
-            size: sampleValueSet
+            size: sampleValueSet,
+            color: otuIdSet
         }
     };
 
