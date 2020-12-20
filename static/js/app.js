@@ -40,9 +40,10 @@ function updatePlotly() {
 
     var trace = [
         {
-            x: otuLabelSet,
+            x: otuIdSet,
             y: sampleValueSet,
-            type: 'bar'
+            type: 'bar',
+            text: otuLabelSet
         }
     ];
 
