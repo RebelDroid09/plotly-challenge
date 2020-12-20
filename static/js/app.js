@@ -90,10 +90,7 @@ function updateMetadata(index)
     metadataPanel.append("p").text(location);
     metadataPanel.append("p").text(bbtype);
     metadataPanel.append("p").text(wfreq);
-    
-    
-   
-}
+};
 
 
 
