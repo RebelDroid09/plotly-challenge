@@ -38,6 +38,8 @@ function updatePlotly() {
 
     updateMetadata(desiredIndex);
 
+    updateBubbleChart(desiredIndex);
+
     var otuIdSet = sampleSet.otu_ids.slice(0, 11);
     var otuLabelSet = sampleSet.otu_labels.slice(0, 11);
     var sampleValueSet = sampleSet.sample_values.slice(0, 11);
@@ -90,6 +92,35 @@ function updateMetadata(index)
     metadataPanel.append("p").text(location);
     metadataPanel.append("p").text(bbtype);
     metadataPanel.append("p").text(wfreq);
+};
+
+function updateBubbleChart(index) {
+    var bubbleSet = dataset.samples[index];
+
+    var otuIdSet = bubbleSet.otu_ids;
+    var otuLabelSet = bubbleSet.otu_labels;
+    var sampleValueSet = bubbleSet.sample_values;
+
+    var bubbleTrace = {
+        x: otuIdSet,
+        y: sampleValueSet,
+        text: otuLabelSet,
+        mode: 'markers',
+        marker: {
+            size: sampleValueSet,
+            color: otuIdSet
+        }
+    };
+
+    var data = [bubbleTrace];
+
+    var layout = {
+        title: 'OTU ID',
+      };
+
+    Plotly.newPlot('bubble', data, layout);
+
+    console.log("End of bubble chart code");
 };
 
 
