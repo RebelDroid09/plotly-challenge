@@ -93,7 +93,24 @@ function updateMetadata(index)
 };
 
 function updateBubbleChart(index) {
+    var bubbleSet = dataset.samples[desiredIndex];
 
+    var otuIdSet = bubbleSet.otu_ids;
+    var otuLabelSet = bubbleSet.otu_labels;
+    var sampleValueSet = bubbleSet.sample_values;
+
+    var bubbleTrace = {
+        x: otuIdSet,
+        y: sampleValueSet,
+        text: otuLabelSet,
+        mode: 'markers',
+        marker: {
+            color: otuIdSet,
+            size: sampleValueSet
+        }
+    }
+
+    Plotly.newPlot('myDiv', bubbleTrace);
 };
 
 
