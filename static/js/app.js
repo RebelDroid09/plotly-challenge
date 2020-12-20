@@ -46,6 +46,6 @@ function updatePlotly() {
         }
     ];
 
-    Plotly.newPlot('')
+    Plotly.newPlot('bar', trace);
 };
 
