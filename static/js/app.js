@@ -20,6 +20,8 @@ d3.json("./data/samples.json").then(function(data)
         .text(function(d) {
             return d;
         }); 
+
+    updatePlotly();
 });
 
 d3.selectAll("#selDataset").on("change", updatePlotly);
@@ -66,18 +68,32 @@ function updatePlotly() {
 
 function updateMetadata(index)
 {
+    console.log(index);
+
     var subjectMetadata = dataset.metadata[index];
 
-    var metadataPanel = d3.select("#sample-metadata")
+    var id = "id: " + subjectMetadata.id;
+    var ethnicity = "ethnicity: " + subjectMetadata.ethnicity;
+    var gender = "gender: " + subjectMetadata.gender;
+    var age = "age: " + subjectMetadata.age;
+    var location = "location: " + subjectMetadata.location;
+    var bbtype = "bbtype: " + subjectMetadata.bbtype;
+    var wfreq = "wfreq: " + subjectMetadata.wfreq;
 
-    var metadataText = metadataPanel.selectAll('p')
-        .data(subjectMetadata)
-        .enter()
-        .append("p")
-        .text(function(d) {
-            return d;
-        }); 
+    var metadataPanel = d3.select("#sample-metadata");
+    metadataPanel.html("");
+
+    metadataPanel.append("p").text(id);
+    metadataPanel.append("p").text(ethnicity);
+    metadataPanel.append("p").text(gender);
+    metadataPanel.append("p").text(age);
+    metadataPanel.append("p").text(location);
+    metadataPanel.append("p").text(bbtype);
+    metadataPanel.append("p").text(wfreq);
+    
+    
+   
 }
 
-updatePlotly();
+
 
