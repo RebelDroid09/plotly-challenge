@@ -51,8 +51,8 @@ function updatePlotly() {
 
     var trace = [
         {
-            x: otuIdSet,
-            y: sampleValueSet,
+            x: sampleValueSet,
+            y: otuIdSet,
             type: 'bar',
             text: otuLabelSet,
             orientation: 'h'
